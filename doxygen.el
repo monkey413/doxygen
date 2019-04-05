@@ -85,8 +85,7 @@ and long sections."
       (widen)
       (let ((start (point)))
         (let ((args (find-arg-list)))
-          (insert (concat "//! \n"
-                          "/*!\n"
+          (insert (concat "/**\n"
                           "  <long-description>\n"
                           "\n"))
           (when (cdr (assoc 'args args))
