@@ -48,10 +48,9 @@ and long sections."
     (save-restriction
       (widen)
       (let ((start (point)))
-        (insert (concat "//! \n"
-                        "/*!\n"
+        (insert (concat "/**\n"
                         "  \n"
-                        "*/\n"))
+                        "*/"))
         (let ((end (point)))
           (indent-region start end nil)))))
   (end-of-line))
@@ -64,7 +63,7 @@ and long sections."
                      "untitled"))
         (date-string (format-time-string doxygen-date-format))
         (who (user-full-name)))
-    (insert (format (concat "/*!\n"
+    (insert (format (concat "/**\n"
                             "  \\file   %s\n"
                             "  \\brief  \n"
                             "\n"
@@ -72,7 +71,7 @@ and long sections."
                             "\n"  
                             "  \\author %s\n"
                             "  \\date   %s\n"
-                            "*/\n")
+                            "*/")
                     file-name who date-string))))
 
 
@@ -92,7 +91,7 @@ and long sections."
             (dump-arguments (cdr (assoc 'args args))))
           (unless (string= "void" (cdr (assoc 'return args)))
             (insert "  \\return <ReturnValue>\n"))
-          (insert "*/\n"))
+          (insert "*/"))
         (let ((end (point)))
           (indent-region start end nil)
           (untabify start end)))))
